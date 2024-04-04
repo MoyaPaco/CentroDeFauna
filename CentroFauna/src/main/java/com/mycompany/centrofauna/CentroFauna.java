@@ -10,6 +10,8 @@ package com.mycompany.centrofauna;
  */
 public class CentroFauna extends javax.swing.JFrame {
 
+    //tamaño letra 18
+        
     /**
      * Creates new form CentroFauna
      */
@@ -168,6 +170,7 @@ public class CentroFauna extends javax.swing.JFrame {
 
     private void botonAltaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAltaActionPerformed
         new Alta().setVisible(true);
+        //hacer q al cerrar esta ventana no cierre todo
     }//GEN-LAST:event_botonAltaActionPerformed
 
     /**
