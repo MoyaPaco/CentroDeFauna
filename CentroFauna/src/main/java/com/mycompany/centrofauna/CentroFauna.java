@@ -18,14 +18,27 @@ public class CentroFauna extends javax.swing.JFrame {
     static ArrayList<Mamifero> mamiferos = new ArrayList();
     static ArrayList<Ave> aves = new ArrayList();
     static ArrayList<Reptil> reptiles = new ArrayList();
+    static ArrayList<Animal> bajas = new ArrayList();
+
+    //PRUEBAS JCOMBO BAJA
+    static Ave a1 = new Ave(true, null, "gorrion", 20, "muy grave");
+    static Ave a2 = new Ave(true, null, "gorrion", 20, "muy grave");
+    static Ave a3 = new Ave(true, null, "gorrion", 20, "muy grave");
+    static Ave a4 = new Ave(true, null, "gorrion", 20, "muy grave");
 
     //tamaño letra 18
     /**
      * Creates new form CentroFauna
      */
     public CentroFauna() {
-
+        aves.add(a1);
+        aves.add(a2);
+        aves.add(a3);
+        aves.add(a4);
         initComponents();
+        for (int i = 0; i < aves.size(); i++) {
+            desplegableBaja.addItem(aves.toString());
+        }
     }
 
     /**
@@ -50,6 +63,13 @@ public class CentroFauna extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         especieAnimal = new javax.swing.JTextField();
         fechaEntrada = new javax.swing.JTextField();
+        baja = new javax.swing.JFrame();
+        desplegableBaja = new javax.swing.JComboBox<>();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        fechaBaja = new javax.swing.JTextField();
+        guardarBaja = new javax.swing.JButton();
+        salirBaja = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         botonAlta = new javax.swing.JButton();
         botonListado = new javax.swing.JButton();
@@ -189,6 +209,80 @@ public class CentroFauna extends javax.swing.JFrame {
                     .addContainerGap(133, Short.MAX_VALUE)))
         );
 
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel6.setText("Indique la fecha de la baja:");
+
+        jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel8.setText("Seleccione el animal que quiere dar de baja:");
+
+        fechaBaja.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        fechaBaja.setText("dd/MM/aaaa");
+        fechaBaja.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fechaBajaActionPerformed(evt);
+            }
+        });
+
+        guardarBaja.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        guardarBaja.setText("Guardar");
+        guardarBaja.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                guardarBajaActionPerformed(evt);
+            }
+        });
+
+        salirBaja.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        salirBaja.setText("Salir");
+        salirBaja.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                salirBajaActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout bajaLayout = new javax.swing.GroupLayout(baja.getContentPane());
+        baja.getContentPane().setLayout(bajaLayout);
+        bajaLayout.setHorizontalGroup(
+            bajaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bajaLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(guardarBaja, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(salirBaja)
+                .addGap(17, 17, 17))
+            .addGroup(bajaLayout.createSequentialGroup()
+                .addGroup(bajaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(bajaLayout.createSequentialGroup()
+                        .addGap(141, 141, 141)
+                        .addComponent(jLabel6))
+                    .addGroup(bajaLayout.createSequentialGroup()
+                        .addGap(77, 77, 77)
+                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 352, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(bajaLayout.createSequentialGroup()
+                        .addGap(155, 155, 155)
+                        .addComponent(fechaBaja, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(bajaLayout.createSequentialGroup()
+                        .addGap(95, 95, 95)
+                        .addComponent(desplegableBaja, javax.swing.GroupLayout.PREFERRED_SIZE, 308, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(72, Short.MAX_VALUE))
+        );
+        bajaLayout.setVerticalGroup(
+            bajaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(bajaLayout.createSequentialGroup()
+                .addGap(32, 32, 32)
+                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(desplegableBaja, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(fechaBaja, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 104, Short.MAX_VALUE)
+                .addGroup(bajaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(guardarBaja)
+                    .addComponent(salirBaja))
+                .addGap(18, 18, 18))
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(51, 51, 255));
         setBounds(new java.awt.Rectangle(500, 300, 0, 0));
@@ -310,8 +404,11 @@ public class CentroFauna extends javax.swing.JFrame {
     }//GEN-LAST:event_botonSalirActionPerformed
 
     private void botonBajaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonBajaActionPerformed
-//MIO
-
+        //MIO
+        baja.setLocationRelativeTo(CentroFauna.this);
+        baja.setSize(500, 375);
+        baja.setVisible(true);
+        baja.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
     }//GEN-LAST:event_botonBajaActionPerformed
 
     private void botonLibActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonLibActionPerformed
@@ -344,43 +441,43 @@ public class CentroFauna extends javax.swing.JFrame {
         while (errores) {
             //PESO
             try {
+                //BUCLE INFINITO; HAY Q LIMPIAR PESOD O PESO y FECHA
                 pesoD = Double.parseDouble(peso.getText());
+                String fechaS = fechaEntrada.getText();
+                fecha_entrada = formato.parse(fechaS);
                 errores = false;
             } catch (NumberFormatException e) {
                 JOptionPane.showMessageDialog(null, "El valor introducido en PESO no es válido.");
                 errores = true;
-            }
-
-            //FECHA ENTRADA
-            try {
-                String fechaS = fechaEntrada.getText();
-                fecha_entrada = formato.parse(fechaS);
-                errores = false;
             } catch (ParseException e) {
                 JOptionPane.showMessageDialog(null, "El formato de la fecha es incorrecto(dd/MM/aaaa).");
                 errores = true;
 
             }
-            //ESPECIE
-            try {
-                especieA = especieAnimal.getText();
-                errores = false;
-            } catch (Exception e) {
-                JOptionPane.showMessageDialog(null, "El valor introducido en ESPECIE no es válido.");
-                errores = true;
 
-            }
-
-            try {
-                gravedadA = (String) gravedad.getSelectedItem();
-                errores = false;
-            } catch (Exception e) {
-                JOptionPane.showMessageDialog(null, "Ha habido un error en el apartado 'GRAVEDAD'.");
-                errores = true;
-            }
+//            //FECHA ENTRADA
+//            try {
+//                String fechaS = fechaEntrada.getText();
+//                fecha_entrada = formato.parse(fechaS);
+//                errores = false;
+//            } catch (ParseException e) {
+//                JOptionPane.showMessageDialog(null, "El formato de la fecha es incorrecto(dd/MM/aaaa).");
+//                errores = true;
+//
+//            }
+//            //ESPECIE
+//            try {
+//                especieA = especieAnimal.getText();
+//                errores = false;
+//            } catch (Exception e) {
+//                JOptionPane.showMessageDialog(null, "El valor introducido en ESPECIE no es válido.");
+//                errores = true;
+//
+//            }
         }
 
-        if (tipoAnimal.getSelectedItem().equals("Ave")) {
+        if (tipoAnimal.getSelectedItem()
+                .equals("Ave")) {
             int siLesion = JOptionPane.showConfirmDialog(null, "¿El motivo de la lesión es la caza?", "Lesión", JOptionPane.YES_NO_OPTION);
             boolean lesionCaza;
             if (siLesion == 0) {
@@ -391,7 +488,9 @@ public class CentroFauna extends javax.swing.JFrame {
             Ave av1 = new Ave(lesionCaza, fecha_entrada, especieA, pesoD, gravedadA);
             aves.add(av1);
         }
-        if (tipoAnimal.getSelectedItem().equals("Mamífero")) {
+
+        if (tipoAnimal.getSelectedItem()
+                .equals("Mamífero")) {
             int siLesion = JOptionPane.showConfirmDialog(null, "¿El motivo de la lesión es un atropello?", "Lesión", JOptionPane.YES_NO_OPTION);
             boolean lesionAtropello;
             if (siLesion == 0) {
@@ -402,7 +501,9 @@ public class CentroFauna extends javax.swing.JFrame {
             Mamifero m1 = new Mamifero(lesionAtropello, fecha_entrada, especieA, pesoD, gravedadA);
             mamiferos.add(m1);
         }
-        if (tipoAnimal.getSelectedItem().equals("Reptil")) {
+
+        if (tipoAnimal.getSelectedItem()
+                .equals("Reptil")) {
             int siLesion = JOptionPane.showConfirmDialog(null, "¿El motivo de la lesión es una infección bacteriana?", "Lesión", JOptionPane.YES_NO_OPTION);
             boolean lesionInf;
             if (siLesion == 0) {
@@ -414,22 +515,68 @@ public class CentroFauna extends javax.swing.JFrame {
             );
             reptiles.add(r1);
         }
-        alta.setVisible(false);
+
+        alta.setVisible(
+                false);
         alta.dispose();
         //LIMPIAR TEXTFIELDS
-        especieAnimal.setText("");
-        fechaEntrada.setText("");
-        peso.setText("");
+
+        especieAnimal.setText(
+                "");
+        fechaEntrada.setText(
+                "");
+        peso.setText(
+                "");
     }//GEN-LAST:event_guardarAltaActionPerformed
 
     private void salirAltaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salirAltaActionPerformed
         alta.dispose();
-
     }//GEN-LAST:event_salirAltaActionPerformed
 
     private void tipoAnimalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tipoAnimalActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_tipoAnimalActionPerformed
+
+    private void fechaBajaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fechaBajaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_fechaBajaActionPerformed
+
+    private void salirBajaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salirBajaActionPerformed
+        baja.dispose();;
+    }//GEN-LAST:event_salirBajaActionPerformed
+
+    private void guardarBajaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarBajaActionPerformed
+        boolean noterminar = true;
+        do {
+            SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+            Date fecha_baja = null;
+            if (desplegableBaja.getSelectedItem() instanceof Ave) {
+                aves.remove(desplegableBaja.getSelectedItem());
+            }
+            if (desplegableBaja.getSelectedItem() instanceof Mamifero) {
+                mamiferos.remove(desplegableBaja.getSelectedItem());
+            }
+            if (desplegableBaja.getSelectedItem() instanceof Reptil) {
+                reptiles.remove(desplegableBaja.getSelectedItem());
+            }
+            boolean fechaerror = true;
+            while (fechaerror) {
+                try {
+                    fechaerror = true;
+                    String fechaB = fechaBaja.getText();
+                    fecha_baja = formato.parse(fechaB);
+                    fechaerror = false;
+                    noterminar = false;
+                } catch (ParseException e) {
+                    JOptionPane.showMessageDialog(null, "El formato de la fecha es incorrecto(dd/MM/aaaa).");
+                    fechaerror = true;
+                }
+            }
+        } while (noterminar);
+        JOptionPane.showMessageDialog(null, "El animal se ha dado de baja correctamente.");
+        baja.dispose();
+
+    }//GEN-LAST:event_guardarBajaActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -442,16 +589,24 @@ public class CentroFauna extends javax.swing.JFrame {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
+
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(CentroFauna.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CentroFauna.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(CentroFauna.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CentroFauna.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(CentroFauna.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CentroFauna.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(CentroFauna.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CentroFauna.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
@@ -465,25 +620,32 @@ public class CentroFauna extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JFrame alta;
+    private javax.swing.JFrame baja;
     private javax.swing.JButton botonAlta;
     private javax.swing.JButton botonBaja;
     private javax.swing.JButton botonLib;
     private javax.swing.JButton botonListado;
     private javax.swing.JButton botonSalir;
     private javax.swing.JButton botonTratamiento1;
+    private javax.swing.JComboBox<String> desplegableBaja;
     private javax.swing.JTextField especieAnimal;
+    private javax.swing.JTextField fechaBaja;
     private javax.swing.JTextField fechaEntrada;
     private javax.swing.JComboBox<String> gravedad;
     private javax.swing.JButton guardarAlta;
+    private javax.swing.JButton guardarBaja;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField peso;
     private javax.swing.JButton salirAlta;
+    private javax.swing.JButton salirBaja;
     private javax.swing.JComboBox<String> tipoAnimal;
     // End of variables declaration//GEN-END:variables
 }
