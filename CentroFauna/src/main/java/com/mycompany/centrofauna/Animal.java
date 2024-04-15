@@ -12,14 +12,13 @@ public abstract class Animal {
     Date fecha_entrada;
     String especie;
     double peso;
-    String tipo_lesion;
     String gravedad;
 
-    public Animal(Date fecha_entrada, String especie, double peso, String tipo_lesion, String gravedad) {
+    public Animal(Date fecha_entrada, String especie, double peso, String gravedad) {
         this.fecha_entrada = fecha_entrada;
         this.especie = especie;
         this.peso = peso;
-        this.tipo_lesion = tipo_lesion;
+
         this.gravedad = gravedad;
     }
 
@@ -47,14 +46,6 @@ public abstract class Animal {
         this.peso = peso;
     }
 
-    public String getTipo_lesion() {
-        return tipo_lesion;
-    }
-
-    public void setTipo_lesion(String tipo_lesion) {
-        this.tipo_lesion = tipo_lesion;
-    }
-
     public String getGravedad() {
         return gravedad;
     }
@@ -65,7 +56,7 @@ public abstract class Animal {
 
     @Override
     public String toString() {
-        return "Animal{" + "fecha_entrada=" + fecha_entrada + ", especie=" + especie + ", peso=" + peso + ", tipo_lesion=" + tipo_lesion + ", gravedad=" + gravedad + '}';
+        return "Animal{" + "fecha_entrada=" + fecha_entrada + ", especie=" + especie + ", peso=" + peso + ", gravedad=" + gravedad + '}';
     }
 
 }

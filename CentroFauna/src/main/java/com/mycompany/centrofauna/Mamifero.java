@@ -9,10 +9,12 @@ import java.util.Date;
 public class Mamifero extends Animal{
     boolean motivoAtropello;
 
-    public Mamifero(boolean motivoAtropello, Date fecha_entrada, String especie, double peso, String tipo_lesion, String gravedad) {
-        super(fecha_entrada, especie, peso, tipo_lesion, gravedad);
+    public Mamifero(boolean motivoAtropello, Date fecha_entrada, String especie, double peso, String gravedad) {
+        super(fecha_entrada, especie, peso, gravedad);
         this.motivoAtropello = motivoAtropello;
     }
+
+
 
     public boolean isMotivoAtropello() {
         return motivoAtropello;
@@ -44,14 +46,6 @@ public class Mamifero extends Animal{
 
     public void setPeso(double peso) {
         this.peso = peso;
-    }
-
-    public String getTipo_lesion() {
-        return tipo_lesion;
-    }
-
-    public void setTipo_lesion(String tipo_lesion) {
-        this.tipo_lesion = tipo_lesion;
     }
 
     public String getGravedad() {

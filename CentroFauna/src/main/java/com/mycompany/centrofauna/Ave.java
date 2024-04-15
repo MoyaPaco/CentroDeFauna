@@ -8,21 +8,21 @@ import java.util.Date;
  */
 public class Ave extends Animal {
 
-    boolean motivoCaza;
+    boolean caza;
 
-    public Ave(boolean motivoCaza, Date fecha_entrada, String especie, double peso, String tipo_lesion, String gravedad) {
-        super(fecha_entrada, especie, peso, tipo_lesion, gravedad);
-        this.motivoCaza = motivoCaza;
+    public Ave(boolean caza, Date fecha_entrada, String especie, double peso, String gravedad) {
+        super(fecha_entrada, especie, peso, gravedad);
+        this.caza = caza;
     }
 
-    public boolean isMotivoCaza() {
-        return motivoCaza;
+    public boolean isCaza() {
+        return caza;
     }
 
-    public void setMotivoCaza(boolean motivoCaza) {
-        this.motivoCaza = motivoCaza;
+    public void setCaza(boolean caza) {
+        this.caza = caza;
     }
-
+    
     public Date getFecha_entrada() {
         return fecha_entrada;
     }
@@ -45,14 +45,6 @@ public class Ave extends Animal {
 
     public void setPeso(double peso) {
         this.peso = peso;
-    }
-
-    public String getTipo_lesion() {
-        return tipo_lesion;
-    }
-
-    public void setTipo_lesion(String tipo_lesion) {
-        this.tipo_lesion = tipo_lesion;
     }
 
     public String getGravedad() {
