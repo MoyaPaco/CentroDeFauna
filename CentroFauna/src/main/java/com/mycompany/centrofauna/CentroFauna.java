@@ -1,5 +1,7 @@
 package com.mycompany.centrofauna;
 
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.Instant;
@@ -7,6 +9,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.InputMismatchException;
 import javax.swing.JDialog;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 /**
@@ -31,14 +34,17 @@ public class CentroFauna extends javax.swing.JFrame {
      * Creates new form CentroFauna
      */
     public CentroFauna() {
+        //PRUEBAS
         aves.add(a1);
         aves.add(a2);
         aves.add(a3);
         aves.add(a4);
+
         initComponents();
         for (int i = 0; i < aves.size(); i++) {
             desplegableBaja.addItem(aves.toString());
         }
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
     }
 
     /**
@@ -284,8 +290,10 @@ public class CentroFauna extends javax.swing.JFrame {
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("CENTRO DE FAUNA");
         setBackground(new java.awt.Color(51, 51, 255));
         setBounds(new java.awt.Rectangle(500, 300, 0, 0));
+        setResizable(false);
 
         botonAlta.setText("ALTA");
         botonAlta.addActionListener(new java.awt.event.ActionListener() {
@@ -405,10 +413,12 @@ public class CentroFauna extends javax.swing.JFrame {
 
     private void botonBajaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonBajaActionPerformed
         //MIO
+        setVisible(false);
         baja.setLocationRelativeTo(CentroFauna.this);
         baja.setSize(500, 375);
         baja.setVisible(true);
         baja.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        setVisible(true);
     }//GEN-LAST:event_botonBajaActionPerformed
 
     private void botonLibActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonLibActionPerformed
@@ -420,11 +430,17 @@ public class CentroFauna extends javax.swing.JFrame {
     }//GEN-LAST:event_botonListadoActionPerformed
 
     private void botonAltaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAltaActionPerformed
-
-        alta.setLocationRelativeTo(CentroFauna.this);
-        alta.setSize(500, 375);
-        alta.setVisible(true);
         alta.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        alta.setSize(500, 375);
+        Toolkit miPantalla = Toolkit.getDefaultToolkit();
+        //obtiene el tamaño de la pantalla
+        Dimension tamPantalla = miPantalla.getScreenSize();
+        int altoPantalla = tamPantalla.height;
+        int anchoPantalla = tamPantalla.width;
+        //alta.setSize(anchoPantalla / 2, altoPantalla / 2); //viene de JFrame
+        alta.setLocation(anchoPantalla / 4, altoPantalla / 4);
+        alta.setVisible(true);
+
     }//GEN-LAST:event_botonAltaActionPerformed
 
     private void pesoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pesoActionPerformed
@@ -432,6 +448,7 @@ public class CentroFauna extends javax.swing.JFrame {
     }//GEN-LAST:event_pesoActionPerformed
 
     private void guardarAltaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarAltaActionPerformed
+        setVisible(false);
         SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
         double pesoD = 0;
         String especieA = "";
@@ -516,9 +533,9 @@ public class CentroFauna extends javax.swing.JFrame {
             reptiles.add(r1);
         }
 
-        alta.setVisible(
-                false);
+        alta.setVisible(false);
         alta.dispose();
+        setVisible(true);
         //LIMPIAR TEXTFIELDS
 
         especieAnimal.setText(
@@ -531,6 +548,7 @@ public class CentroFauna extends javax.swing.JFrame {
 
     private void salirAltaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salirAltaActionPerformed
         alta.dispose();
+        setVisible(true);
     }//GEN-LAST:event_salirAltaActionPerformed
 
     private void tipoAnimalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tipoAnimalActionPerformed
@@ -542,7 +560,8 @@ public class CentroFauna extends javax.swing.JFrame {
     }//GEN-LAST:event_fechaBajaActionPerformed
 
     private void salirBajaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salirBajaActionPerformed
-        baja.dispose();;
+        baja.dispose();
+        setVisible(true);
     }//GEN-LAST:event_salirBajaActionPerformed
 
     private void guardarBajaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarBajaActionPerformed
