@@ -51,7 +51,8 @@ public class CentroFauna extends javax.swing.JFrame {
         reptiles.add(r2);
         initComponents();
         Toolkit miPantalla = Toolkit.getDefaultToolkit();
-        Image icono = miPantalla.getImage("src/imagenes/descarga.jpg");
+        Image icono = miPantalla.getImage("src/imagenes/panda.png");
+        setIconImage(icono);
         for (int i = 0; i < aves.size(); i++) {
             desplegableBaja.addItem(aves.get(i));
         }
