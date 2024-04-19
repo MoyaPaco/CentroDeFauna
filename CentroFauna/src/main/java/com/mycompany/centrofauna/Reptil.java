@@ -9,10 +9,25 @@ import java.util.Date;
 public class Reptil extends Animal {
 
     boolean motivoInfeccion;
+    Date fecha_baja;
 
     public Reptil(boolean motivoInfeccion, Date fecha_entrada, String especie, double peso, String gravedad) {
         super(fecha_entrada, especie, peso, gravedad);
         this.motivoInfeccion = motivoInfeccion;
+    }
+
+    public Reptil(boolean motivoInfeccion, Date fecha_baja, Date fecha_entrada, String especie, double peso, String gravedad) {
+        super(fecha_entrada, especie, peso, gravedad);
+        this.motivoInfeccion = motivoInfeccion;
+        this.fecha_baja = fecha_baja;
+    }
+
+    public Date getFecha_baja() {
+        return fecha_baja;
+    }
+
+    public void setFecha_baja(Date fecha_baja) {
+        this.fecha_baja = fecha_baja;
     }
 
     public boolean isMotivoInfeccion() {
@@ -57,6 +72,12 @@ public class Reptil extends Animal {
 
     @Override
     public String toString() {
-        return "Tipo: REPTIL, Especie: " + especie + ", Peso: " + peso + ", Fecha Entrada: " + fecha_entrada + ", Tipo Lesión: " + motivoInfeccion + "Gravedad Lesión : " + gravedad;
+        String texto;
+        if (fecha_baja == null) {
+            texto = "Tipo: REPTIL, Especie: " + especie + ", Peso: " + peso + ", Fecha Entrada: " + fecha_entrada + ", Tipo Lesión: " + motivoInfeccion + "Gravedad Lesión : " + gravedad;
+        } else {
+            texto = "Tipo: REPTIL, Especie: " + especie + ", Peso: " + peso + ", Fecha Entrada: " + fecha_entrada + ", Tipo Lesión: " + motivoInfeccion + "Gravedad Lesión : " + gravedad + "Fecha Baja: " + fecha_baja;
+        }
+        return texto;
     }
 }

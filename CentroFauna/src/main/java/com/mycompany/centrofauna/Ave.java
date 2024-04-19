@@ -9,10 +9,25 @@ import java.util.Date;
 public class Ave extends Animal {
 
     boolean caza;
+    Date fecha_baja;
 
     public Ave(boolean caza, Date fecha_entrada, String especie, double peso, String gravedad) {
         super(fecha_entrada, especie, peso, gravedad);
         this.caza = caza;
+    }
+
+    public Ave(boolean caza, Date fecha_baja, Date fecha_entrada, String especie, double peso, String gravedad) {
+        super(fecha_entrada, especie, peso, gravedad);
+        this.caza = caza;
+        this.fecha_baja = fecha_baja;
+    }
+
+    public Date getFecha_baja() {
+        return fecha_baja;
+    }
+
+    public void setFecha_baja(Date fecha_baja) {
+        this.fecha_baja = fecha_baja;
     }
 
     public boolean isCaza() {
@@ -58,6 +73,13 @@ public class Ave extends Animal {
 
     @Override
     public String toString() {
-        return "Tipo: AVE, Especie: " + especie +", Peso: " +peso +", Fecha Entrada: " + fecha_entrada + ", Tipo Lesión: " + caza + "Gravedad Lesión : " + gravedad;
+        String texto;
+        if (fecha_baja == null) {
+            texto = "Tipo: MAMÍFERO, Especie: " + especie + ", Peso: " + peso + ", Fecha Entrada: " + fecha_entrada + ", Tipo Lesión: " + caza + "Gravedad Lesión : " + gravedad ;
+        } else {
+            texto = "Tipo: MAMÍFERO, Especie: " + especie + ", Peso: " + peso + ", Fecha Entrada: " + fecha_entrada + ", Tipo Lesión: " + caza + "Gravedad Lesión : " + gravedad + "Fecha Baja: " + fecha_baja;
+        }
+        return texto;
     }
+
 }

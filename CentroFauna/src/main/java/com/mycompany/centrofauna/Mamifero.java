@@ -8,10 +8,25 @@ import java.util.Date;
  */
 public class Mamifero extends Animal{
     boolean motivoAtropello;
+    Date fecha_baja;
 
     public Mamifero(boolean motivoAtropello, Date fecha_entrada, String especie, double peso, String gravedad) {
         super(fecha_entrada, especie, peso, gravedad);
         this.motivoAtropello = motivoAtropello;
+    }
+
+    public Mamifero(boolean motivoAtropello, Date fecha_baja, Date fecha_entrada, String especie, double peso, String gravedad) {
+        super(fecha_entrada, especie, peso, gravedad);
+        this.motivoAtropello = motivoAtropello;
+        this.fecha_baja = fecha_baja;
+    }
+
+    public Date getFecha_baja() {
+        return fecha_baja;
+    }
+
+    public void setFecha_baja(Date fecha_baja) {
+        this.fecha_baja = fecha_baja;
     }
 
 
@@ -58,6 +73,12 @@ public class Mamifero extends Animal{
     
     @Override
     public String toString() {
-        return "Tipo: MAMÍFERO, Especie: " + especie +", Peso: " +peso +", Fecha Entrada: " + fecha_entrada + ", Tipo Lesión: " + motivoAtropello + "Gravedad Lesión : " + gravedad;
+        String texto;
+        if (fecha_baja == null) {
+            texto = "Tipo: AVE, Especie: " + especie + ", Peso: " + peso + ", Fecha Entrada: " + fecha_entrada + ", Tipo Lesión: " + motivoAtropello + "Gravedad Lesión : " + gravedad ;
+        } else {
+            texto = "Tipo: AVE, Especie: " + especie + ", Peso: " + peso + ", Fecha Entrada: " + fecha_entrada + ", Tipo Lesión: " + motivoAtropello + "Gravedad Lesión : " + gravedad + "Fecha Baja: " + fecha_baja;
+        }
+        return texto;
     }
 }
