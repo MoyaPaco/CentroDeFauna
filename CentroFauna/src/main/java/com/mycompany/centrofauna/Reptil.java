@@ -6,15 +6,14 @@ import java.util.Date;
  *
  * @author Paco y Mario
  */
-public class Reptil extends Animal{
+public class Reptil extends Animal {
+
     boolean motivoInfeccion;
 
     public Reptil(boolean motivoInfeccion, Date fecha_entrada, String especie, double peso, String gravedad) {
         super(fecha_entrada, especie, peso, gravedad);
         this.motivoInfeccion = motivoInfeccion;
     }
-
-
 
     public boolean isMotivoInfeccion() {
         return motivoInfeccion;
@@ -56,4 +55,8 @@ public class Reptil extends Animal{
         this.gravedad = gravedad;
     }
 
+    @Override
+    public String toString() {
+        return "Tipo: REPTIL, Especie: " + especie + ", Peso: " + peso + ", Fecha Entrada: " + fecha_entrada + ", Tipo Lesión: " + motivoInfeccion + "Gravedad Lesión : " + gravedad;
+    }
 }

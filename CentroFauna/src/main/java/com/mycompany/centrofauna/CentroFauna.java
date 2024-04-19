@@ -2,6 +2,7 @@ package com.mycompany.centrofauna;
 
 import static com.mycompany.centrofauna.CentroFauna.aves;
 import java.awt.Dimension;
+import java.awt.Image;
 import java.awt.Toolkit;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -29,6 +30,10 @@ public class CentroFauna extends javax.swing.JFrame {
     static Ave a2 = new Ave(true, null, "gorrion2", 20, "muy grave");
     static Ave a3 = new Ave(true, null, "gorrion3", 20, "muy grave");
     static Ave a4 = new Ave(true, null, "gorrion4", 20, "muy grave");
+    static Mamifero m1 = new Mamifero(true, null, "gorrion3", 20, "muy grave");
+    static Mamifero m2 = new Mamifero(true, null, "gorrion4", 20, "muy grave");
+    static Reptil r1 = new Reptil(true, null, "gorrion4", 20, "muy grave");
+    static Reptil r2 = new Reptil(true, null, "gorrion4", 20, "muy grave");
 
     //tamaño letra 18
     /**
@@ -40,12 +45,23 @@ public class CentroFauna extends javax.swing.JFrame {
         aves.add(a2);
         aves.add(a3);
         aves.add(a4);
+        mamiferos.add(m1);
+        mamiferos.add(m2);
+        reptiles.add(r1);
+        reptiles.add(r2);
         initComponents();
+        Toolkit miPantalla = Toolkit.getDefaultToolkit();
+        Image icono = miPantalla.getImage("src/imagenes/descarga.jpg");
         for (int i = 0; i < aves.size(); i++) {
             desplegableBaja.addItem(aves.get(i));
         }
+        for (int i = 0; i < reptiles.size(); i++) {
+            desplegableBaja.addItem(reptiles.get(i));
+        }
 
-        //desplegableBaja.add(aves(i).);
+        for (int i = 0; i < mamiferos.size(); i++) {
+            desplegableBaja.addItem(mamiferos.get(i));
+        }
         setDefaultCloseOperation(EXIT_ON_CLOSE);
     }
 
@@ -59,17 +75,18 @@ public class CentroFauna extends javax.swing.JFrame {
     private void initComponents() {
 
         alta = new javax.swing.JFrame();
-        jLabel2 = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
+        peso = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
+        especieAnimal = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        guardarAlta = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        salirAlta = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
         tipoAnimal = new javax.swing.JComboBox<>();
         gravedad = new javax.swing.JComboBox<>();
-        salirAlta = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
-        guardarAlta = new javax.swing.JButton();
-        jLabel4 = new javax.swing.JLabel();
-        peso = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
-        especieAnimal = new javax.swing.JTextField();
         fechaEntrada = new javax.swing.JTextField();
         baja = new javax.swing.JFrame();
         desplegableBaja = new javax.swing.JComboBox<>();
@@ -78,6 +95,7 @@ public class CentroFauna extends javax.swing.JFrame {
         fechaBaja = new javax.swing.JTextField();
         guardarBaja = new javax.swing.JButton();
         salirBaja = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         botonAlta = new javax.swing.JButton();
         botonListado = new javax.swing.JButton();
@@ -87,11 +105,58 @@ public class CentroFauna extends javax.swing.JFrame {
         botonSalir = new javax.swing.JButton();
         botonTratamiento1 = new javax.swing.JButton();
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel2.setText("Tipo de animal: ");
+        alta.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        alta.setLocationByPlatform(true);
+        alta.setPreferredSize(new java.awt.Dimension(500, 375));
+        alta.setResizable(false);
+
+        jPanel3.setBackground(new java.awt.Color(0, 51, 255));
+        jPanel3.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel3.setMaximumSize(new java.awt.Dimension(500, 375));
+        jPanel3.setPreferredSize(new java.awt.Dimension(500, 375));
+
+        peso.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        peso.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pesoActionPerformed(evt);
+            }
+        });
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Gravedad:");
+
+        especieAnimal.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setText("Especie: ");
+
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("Peso: ");
+
+        guardarAlta.setText("Guardar");
+        guardarAlta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                guardarAltaActionPerformed(evt);
+            }
+        });
+
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("Fecha de entrada: ");
+
+        salirAlta.setText("Salir");
+        salirAlta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                salirAltaActionPerformed(evt);
+            }
+        });
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("Tipo de animal: ");
 
         tipoAnimal.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         tipoAnimal.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ave", "Mamífero", "Reptil" }));
@@ -104,118 +169,93 @@ public class CentroFauna extends javax.swing.JFrame {
         gravedad.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         gravedad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "muy grave", "grave", "leve", "muy leve" }));
 
-        salirAlta.setText("Salir");
-        salirAlta.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                salirAltaActionPerformed(evt);
-            }
-        });
-
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel3.setText("Fecha de entrada: ");
-
-        guardarAlta.setText("Guardar");
-        guardarAlta.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                guardarAltaActionPerformed(evt);
-            }
-        });
-
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel4.setText("Peso: ");
-
-        peso.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        peso.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                pesoActionPerformed(evt);
-            }
-        });
-
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel5.setText("Especie: ");
-
-        especieAnimal.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-
         fechaEntrada.setText("dd/MM/aaaa");
+        fechaEntrada.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fechaEntradaActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addGap(18, 18, 18)
+                                .addComponent(tipoAnimal, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(jLabel7)
+                                .addGap(24, 24, 24)
+                                .addComponent(gravedad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(jLabel5)
+                                .addGap(18, 18, 18)
+                                .addComponent(especieAnimal, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(jLabel4)
+                                .addGap(18, 18, 18)
+                                .addComponent(peso, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(jLabel3)
+                                .addGap(18, 18, 18)
+                                .addComponent(fechaEntrada, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 196, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(guardarAlta)
+                        .addGap(18, 18, 18)
+                        .addComponent(salirAlta)
+                        .addContainerGap())))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tipoAnimal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(especieAnimal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(32, 32, 32)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(fechaEntrada, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(28, 28, 28)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(peso, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(29, 29, 29)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(gravedad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(salirAlta)
+                    .addComponent(guardarAlta))
+                .addContainerGap())
+        );
 
         javax.swing.GroupLayout altaLayout = new javax.swing.GroupLayout(alta.getContentPane());
         alta.getContentPane().setLayout(altaLayout);
         altaLayout.setHorizontalGroup(
             altaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(altaLayout.createSequentialGroup()
-                .addGroup(altaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(altaLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(altaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, altaLayout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(guardarAlta)
-                                .addGap(18, 18, 18)
-                                .addComponent(salirAlta))
-                            .addGroup(altaLayout.createSequentialGroup()
-                                .addGroup(altaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addGroup(altaLayout.createSequentialGroup()
-                                        .addComponent(jLabel3)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(fechaEntrada, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(altaLayout.createSequentialGroup()
-                                        .addComponent(jLabel7)
-                                        .addGroup(altaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(altaLayout.createSequentialGroup()
-                                                .addGap(52, 52, 52)
-                                                .addComponent(tipoAnimal, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addGroup(altaLayout.createSequentialGroup()
-                                                .addGap(18, 18, 18)
-                                                .addComponent(gravedad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                                .addGap(0, 176, Short.MAX_VALUE))))
-                    .addGroup(altaLayout.createSequentialGroup()
-                        .addGap(69, 69, 69)
-                        .addComponent(peso, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
-            .addGroup(altaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(altaLayout.createSequentialGroup()
-                    .addContainerGap()
-                    .addGroup(altaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel2)
-                        .addGroup(altaLayout.createSequentialGroup()
-                            .addComponent(jLabel5)
-                            .addGap(18, 18, 18)
-                            .addComponent(especieAnimal, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(jLabel4))
-                    .addGap(186, 223, Short.MAX_VALUE)))
+            .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         altaLayout.setVerticalGroup(
             altaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(altaLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(tipoAnimal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 69, Short.MAX_VALUE)
-                .addGroup(altaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(fechaEntrada, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(peso, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(21, 21, 21)
-                .addGroup(altaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(gravedad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(53, 53, 53)
-                .addGroup(altaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(guardarAlta)
-                    .addComponent(salirAlta)))
-            .addGroup(altaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(altaLayout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(18, 18, 18)
-                    .addGroup(altaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel5)
-                        .addComponent(especieAnimal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGap(67, 67, 67)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(133, Short.MAX_VALUE)))
+            .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
+
+        baja.setPreferredSize(new java.awt.Dimension(750, 350));
+        baja.setResizable(false);
 
         desplegableBaja.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -259,42 +299,54 @@ public class CentroFauna extends javax.swing.JFrame {
             bajaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bajaLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(guardarBaja, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(salirBaja)
-                .addGap(17, 17, 17))
-            .addGroup(bajaLayout.createSequentialGroup()
                 .addGroup(bajaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(bajaLayout.createSequentialGroup()
-                        .addGap(141, 141, 141)
-                        .addComponent(jLabel6))
-                    .addGroup(bajaLayout.createSequentialGroup()
-                        .addGap(77, 77, 77)
-                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 352, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(bajaLayout.createSequentialGroup()
-                        .addGap(155, 155, 155)
-                        .addComponent(fechaBaja, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(bajaLayout.createSequentialGroup()
-                        .addGap(95, 95, 95)
-                        .addComponent(desplegableBaja, javax.swing.GroupLayout.PREFERRED_SIZE, 308, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(72, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bajaLayout.createSequentialGroup()
+                        .addComponent(guardarBaja, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(salirBaja)
+                        .addGap(17, 17, 17))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bajaLayout.createSequentialGroup()
+                        .addComponent(fechaBaja, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(269, 269, 269))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bajaLayout.createSequentialGroup()
+                        .addComponent(jLabel6)
+                        .addGap(260, 260, 260))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bajaLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(desplegableBaja, javax.swing.GroupLayout.PREFERRED_SIZE, 308, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(218, 218, 218))
+            .addGroup(bajaLayout.createSequentialGroup()
+                .addGap(197, 197, 197)
+                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 352, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(201, Short.MAX_VALUE))
         );
         bajaLayout.setVerticalGroup(
             bajaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(bajaLayout.createSequentialGroup()
-                .addGap(32, 32, 32)
+                .addContainerGap(61, Short.MAX_VALUE)
                 .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(desplegableBaja, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(desplegableBaja, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(33, 33, 33)
+                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(fechaBaja, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 104, Short.MAX_VALUE)
+                .addGap(48, 48, 48)
                 .addGroup(bajaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(guardarBaja)
                     .addComponent(salirBaja))
                 .addGap(18, 18, 18))
+        );
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -302,6 +354,8 @@ public class CentroFauna extends javax.swing.JFrame {
         setBackground(new java.awt.Color(51, 51, 255));
         setBounds(new java.awt.Rectangle(500, 300, 0, 0));
         setResizable(false);
+
+        jPanel1.setBackground(new java.awt.Color(0, 51, 255));
 
         botonAlta.setText("ALTA");
         botonAlta.addActionListener(new java.awt.event.ActionListener() {
@@ -324,7 +378,9 @@ public class CentroFauna extends javax.swing.JFrame {
             }
         });
 
+        jLabel1.setBackground(new java.awt.Color(51, 255, 0));
         jLabel1.setFont(new java.awt.Font("Lucida Fax", 0, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("CENTRO DE FAUNA");
 
         botonBaja.setText("BAJA");
@@ -422,7 +478,7 @@ public class CentroFauna extends javax.swing.JFrame {
     private void botonBajaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonBajaActionPerformed
         //MIO
         baja.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-        baja.setSize(500, 375);
+        baja.setSize(750, 375);
         Toolkit miPantalla = Toolkit.getDefaultToolkit();
         //obtiene el tamaño de la pantalla
         Dimension tamPantalla = miPantalla.getScreenSize();
@@ -444,16 +500,15 @@ public class CentroFauna extends javax.swing.JFrame {
     private void botonAltaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAltaActionPerformed
         alta.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         alta.setSize(500, 375);
-        Toolkit miPantalla = Toolkit.getDefaultToolkit();
-        //obtiene el tamaño de la pantalla
-        Dimension tamPantalla = miPantalla.getScreenSize();
-        int altoPantalla = tamPantalla.height;
-        int anchoPantalla = tamPantalla.width;
-        //alta.setSize(anchoPantalla / 2, altoPantalla / 2); //viene de JFrame
-        alta.setLocation(anchoPantalla / 4, altoPantalla / 4);
+        alta.setLocationRelativeTo(this);
+//        Toolkit miPantalla = Toolkit.getDefaultToolkit();
+//        //obtiene el tamaño de la pantalla
+//        Dimension tamPantalla = miPantalla.getScreenSize();
+//        int altoPantalla = tamPantalla.height;
+//        int anchoPantalla = tamPantalla.width;
+//        alta.setLocation(anchoPantalla / 4, altoPantalla / 4);
         alta.setVisible(true);
     }//GEN-LAST:event_botonAltaActionPerformed
-
     private void pesoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pesoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_pesoActionPerformed
@@ -539,8 +594,8 @@ public class CentroFauna extends javax.swing.JFrame {
         alta.setVisible(false);
         alta.dispose();
         setVisible(true);
-        //LIMPIAR TEXTFIELDS
 
+        //LIMPIAR TEXTFIELDS
         especieAnimal.setText(
                 "");
         fechaEntrada.setText(
@@ -581,9 +636,6 @@ public class CentroFauna extends javax.swing.JFrame {
         }
         if (desplegableBaja.getSelectedItem() instanceof Reptil) {
             reptiles.remove(desplegableBaja.getSelectedItem());
-            Reptil rF = null;
-            rF = (Reptil) desplegableBaja.getSelectedItem();
-            reptiles.remove(rF);
         }
         boolean acabar = true;
         try {
@@ -599,17 +651,29 @@ public class CentroFauna extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "El animal se ha dado de baja correctamente.");
             baja.dispose();
             setVisible(true);
-            desplegableBaja.removeAll();
-            //NO BORRA LOS ITEMS
+
+            desplegableBaja.removeAllItems();
             for (int i = 0; i < aves.size(); i++) {
                 desplegableBaja.addItem(aves.get(i));
             }
+            for (int i = 0; i < reptiles.size(); i++) {
+                desplegableBaja.addItem(reptiles.get(i));
+            }
+
+            for (int i = 0; i < mamiferos.size(); i++) {
+                desplegableBaja.addItem(mamiferos.get(i));
+            }
+
         }
     }//GEN-LAST:event_guardarBajaActionPerformed
 
     private void desplegableBajaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_desplegableBajaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_desplegableBajaActionPerformed
+
+    private void fechaEntradaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fechaEntradaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_fechaEntradaActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -676,6 +740,8 @@ public class CentroFauna extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JTextField peso;
     private javax.swing.JButton salirAlta;
     private javax.swing.JButton salirBaja;

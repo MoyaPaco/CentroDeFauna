@@ -56,5 +56,8 @@ public class Mamifero extends Animal{
         this.gravedad = gravedad;
     }
     
-    
+    @Override
+    public String toString() {
+        return "Tipo: MAMÍFERO, Especie: " + especie +", Peso: " +peso +", Fecha Entrada: " + fecha_entrada + ", Tipo Lesión: " + motivoAtropello + "Gravedad Lesión : " + gravedad;
+    }
 }
