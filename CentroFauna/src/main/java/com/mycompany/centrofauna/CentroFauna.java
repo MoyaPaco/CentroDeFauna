@@ -1,6 +1,7 @@
 package com.mycompany.centrofauna;
 
 import static com.mycompany.centrofauna.CentroFauna.aves;
+import javax.swing.DefaultListModel;
 import java.awt.Dimension;
 import java.awt.Image;
 import java.awt.Toolkit;
@@ -64,6 +65,8 @@ public class CentroFauna extends javax.swing.JFrame {
             desplegableBaja.addItem(mamiferos.get(i));
         }
         setDefaultCloseOperation(EXIT_ON_CLOSE);
+        
+        
     }
 
     /**
@@ -97,6 +100,23 @@ public class CentroFauna extends javax.swing.JFrame {
         guardarBaja = new javax.swing.JButton();
         salirBaja = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
+        listado = new javax.swing.JFrame();
+        jPanel4 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jList1 = new javax.swing.JList<>();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jList2 = new javax.swing.JList<>();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        listaBaja = new javax.swing.JList<>();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        jList4 = new javax.swing.JList<>();
+        jLabel9 = new javax.swing.JLabel();
+        liberacion = new javax.swing.JFrame();
+        jPanel5 = new javax.swing.JPanel();
+        jLabel10 = new javax.swing.JLabel();
+        desplegableliber = new javax.swing.JComboBox<>();
+        jLabel11 = new javax.swing.JLabel();
+        guardarliber = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         botonAlta = new javax.swing.JButton();
         botonListado = new javax.swing.JButton();
@@ -350,6 +370,151 @@ public class CentroFauna extends javax.swing.JFrame {
             .addGap(0, 100, Short.MAX_VALUE)
         );
 
+        listado.setPreferredSize(new java.awt.Dimension(800, 300));
+
+        jList1.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane1.setViewportView(jList1);
+
+        jList2.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane2.setViewportView(jList2);
+
+        listaBaja.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane3.setViewportView(listaBaja);
+
+        jList4.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane4.setViewportView(jList4);
+
+        jLabel9.setText("LISTADO ANIMALES");
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(36, 36, 36)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(66, 66, 66)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(54, 54, 54)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(32, 32, 32)
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(326, 326, 326)
+                        .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(69, Short.MAX_VALUE))
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(68, 68, 68))
+        );
+
+        javax.swing.GroupLayout listadoLayout = new javax.swing.GroupLayout(listado.getContentPane());
+        listado.getContentPane().setLayout(listadoLayout);
+        listadoLayout.setHorizontalGroup(
+            listadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(listadoLayout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(17, Short.MAX_VALUE))
+        );
+        listadoLayout.setVerticalGroup(
+            listadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(listadoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        jLabel10.setText("LIBERAR ANIMALES");
+
+        desplegableliber.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        jLabel11.setText("Seleccione el animal");
+
+        guardarliber.setText("jButton1");
+        guardarliber.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                guardarliberActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(205, 205, 205)
+                .addComponent(jLabel10)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                .addGap(33, 33, 33)
+                .addComponent(jLabel11)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
+                .addComponent(desplegableliber, javax.swing.GroupLayout.PREFERRED_SIZE, 342, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(17, 17, 17))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(guardarliber, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(31, 31, 31))
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel10)
+                .addGap(37, 37, 37)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(desplegableliber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel11))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 189, Short.MAX_VALUE)
+                .addComponent(guardarliber, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(19, 19, 19))
+        );
+
+        javax.swing.GroupLayout liberacionLayout = new javax.swing.GroupLayout(liberacion.getContentPane());
+        liberacion.getContentPane().setLayout(liberacionLayout);
+        liberacionLayout.setHorizontalGroup(
+            liberacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, liberacionLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        liberacionLayout.setVerticalGroup(
+            liberacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, liberacionLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("CENTRO DE FAUNA");
         setBackground(new java.awt.Color(51, 51, 255));
@@ -491,11 +656,39 @@ public class CentroFauna extends javax.swing.JFrame {
     }//GEN-LAST:event_botonBajaActionPerformed
 
     private void botonLibActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonLibActionPerformed
-        // TODO add your handling code here:
+        liberacion.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        liberacion.setSize(549, 340);
+        Toolkit miPantalla = Toolkit.getDefaultToolkit();
+        //obtiene el tamaño de la pantalla
+        Dimension tamPantalla = miPantalla.getScreenSize();
+        int altoPantalla = tamPantalla.height;
+        int anchoPantalla = tamPantalla.width;
+        //alta.setSize(anchoPantalla / 2, altoPantalla / 2); //viene de JFrame
+        liberacion.setLocation(anchoPantalla / 4, altoPantalla / 4);
+        liberacion.setVisible(true);
+
     }//GEN-LAST:event_botonLibActionPerformed
 
     private void botonListadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonListadoActionPerformed
         // TODO add your handling code here:
+        listado.setSize(837, 350);
+        Toolkit miPantalla = Toolkit.getDefaultToolkit();
+        //obtiene el tamaño de la pantalla
+        Dimension tamPantalla = miPantalla.getScreenSize();
+        int altoPantalla = tamPantalla.height;
+        int anchoPantalla = tamPantalla.width;
+        //alta.setSize(anchoPantalla / 2, altoPantalla / 2); //viene de JFrame
+        listado.setLocation(anchoPantalla / 4, altoPantalla / 4);
+        listado.setVisible(true);
+
+        DefaultListModel listbaja = new DefaultListModel();
+        //Recorrer el contenido del ArrayList
+        for (int i = 0; i < bajas.size(); i++) {
+            //Añadir cada elemento del ArrayList en el modelo de la lista
+            listbaja.add(i, bajas.get(i));
+            listaBaja.setModel(listbaja);
+        }
+
     }//GEN-LAST:event_botonListadoActionPerformed
 
     private void botonAltaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAltaActionPerformed
@@ -676,6 +869,52 @@ public class CentroFauna extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_fechaEntradaActionPerformed
 
+    private void guardarliberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarliberActionPerformed
+        // TODO add your handling code here:
+        SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+        Date fecha_baja = null;
+        if (desplegableliber.getSelectedItem() instanceof Ave) {
+            //aves.remove(desplegableBaja.getSelectedItem());
+            Ave aF;
+            aF = (Ave) desplegableBaja.getSelectedItem();
+            aves.remove(aF);
+        }
+        if (desplegableliber.getSelectedItem() instanceof Mamifero) {
+            mamiferos.remove(desplegableBaja.getSelectedItem());
+        }
+        if (desplegableliber.getSelectedItem() instanceof Reptil) {
+            reptiles.remove(desplegableBaja.getSelectedItem());
+        }
+        boolean acabar = true;
+        try {
+            String fechaB = fechaBaja.getText();
+            fecha_baja = formato.parse(fechaB);
+        } catch (ParseException e) {
+            JOptionPane.showMessageDialog(null, "El formato de la fecha es incorrecto(dd/MM/aaaa).");
+            acabar = false;
+            baja.dispose();
+            setVisible(true);
+        }
+        if (acabar) {
+            JOptionPane.showMessageDialog(null, "El animal se ha dado de baja correctamente.");
+            baja.dispose();
+            setVisible(true);
+
+            desplegableBaja.removeAllItems();
+            for (int i = 0; i < aves.size(); i++) {
+                desplegableBaja.addItem(aves.get(i));
+            }
+            for (int i = 0; i < reptiles.size(); i++) {
+                desplegableBaja.addItem(reptiles.get(i));
+            }
+
+            for (int i = 0; i < mamiferos.size(); i++) {
+                desplegableBaja.addItem(mamiferos.get(i));
+            }
+
+        }
+    }//GEN-LAST:event_guardarliberActionPerformed
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -726,13 +965,17 @@ public class CentroFauna extends javax.swing.JFrame {
     private javax.swing.JButton botonSalir;
     private javax.swing.JButton botonTratamiento1;
     private javax.swing.JComboBox<Animal> desplegableBaja;
+    private javax.swing.JComboBox<String> desplegableliber;
     private javax.swing.JTextField especieAnimal;
     private javax.swing.JTextField fechaBaja;
     private javax.swing.JTextField fechaEntrada;
     private javax.swing.JComboBox<String> gravedad;
     private javax.swing.JButton guardarAlta;
     private javax.swing.JButton guardarBaja;
+    private javax.swing.JButton guardarliber;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -740,9 +983,22 @@ public class CentroFauna extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JList<String> jList1;
+    private javax.swing.JList<String> jList2;
+    private javax.swing.JList<String> jList4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JFrame liberacion;
+    private javax.swing.JList<String> listaBaja;
+    private javax.swing.JFrame listado;
     private javax.swing.JTextField peso;
     private javax.swing.JButton salirAlta;
     private javax.swing.JButton salirBaja;
