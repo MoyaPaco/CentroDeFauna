@@ -18,7 +18,12 @@ public abstract class Animal {
         this.fecha_entrada = fecha_entrada;
         this.especie = especie;
         this.peso = peso;
+        this.gravedad = gravedad;
+    }
 
+    public Animal(Date fecha_entrada, String especie, String gravedad) {
+        this.fecha_entrada = fecha_entrada;
+        this.especie = especie;
         this.gravedad = gravedad;
     }
 

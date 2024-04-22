@@ -75,9 +75,9 @@ public class Mamifero extends Animal{
     public String toString() {
         String texto;
         if (fecha_baja == null) {
-            texto = "Tipo: AVE, Especie: " + especie + ", Peso: " + peso + ", Fecha Entrada: " + fecha_entrada + ", Tipo Lesión: " + motivoAtropello + "Gravedad Lesión : " + gravedad ;
+            texto = "Tipo: MAMÍFERO, Especie: " + especie + ", Peso: " + peso + ", Fecha Entrada: " + fecha_entrada + ", Tipo Lesión: " + motivoAtropello + "Gravedad Lesión : " + gravedad ;
         } else {
-            texto = "Tipo: AVE, Especie: " + especie + ", Peso: " + peso + ", Fecha Entrada: " + fecha_entrada + ", Tipo Lesión: " + motivoAtropello + "Gravedad Lesión : " + gravedad + "Fecha Baja: " + fecha_baja;
+            texto = "Tipo: MAMÍFERO, Especie: " + especie + ", Peso: " + peso + ", Fecha Entrada: " + fecha_entrada + ", Tipo Lesión: " + motivoAtropello + "Gravedad Lesión : " + gravedad + "Fecha Baja: " + fecha_baja;
         }
         return texto;
     }

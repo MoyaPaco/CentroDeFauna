@@ -10,6 +10,15 @@ public class Ave extends Animal {
 
     boolean caza;
     Date fecha_baja;
+    Date fecha_lib;
+
+    public Date getFecha_lib() {
+        return fecha_lib;
+    }
+
+    public void setFecha_lib(Date fecha_lib) {
+        this.fecha_lib = fecha_lib;
+    }
 
     public Ave(boolean caza, Date fecha_entrada, String especie, double peso, String gravedad) {
         super(fecha_entrada, especie, peso, gravedad);
@@ -20,6 +29,12 @@ public class Ave extends Animal {
         super(fecha_entrada, especie, peso, gravedad);
         this.caza = caza;
         this.fecha_baja = fecha_baja;
+    }
+
+    public Ave(boolean caza, Date fecha_lib, Date fecha_entrada, String especie, String gravedad) {
+        super(fecha_entrada, especie, gravedad);
+        this.caza = caza;
+        this.fecha_lib = fecha_lib;
     }
 
     public Date getFecha_baja() {
@@ -68,18 +83,20 @@ public class Ave extends Animal {
 
     public void setGravedad(String gravedad) {
         this.gravedad = gravedad;
-
     }
 
     @Override
     public String toString() {
-        String texto;
-        if (fecha_baja == null) {
-            texto = "Tipo: MAMÍFERO, Especie: " + especie + ", Peso: " + peso + ", Fecha Entrada: " + fecha_entrada + ", Tipo Lesión: " + caza + "Gravedad Lesión : " + gravedad ;
-        } else {
-            texto = "Tipo: MAMÍFERO, Especie: " + especie + ", Peso: " + peso + ", Fecha Entrada: " + fecha_entrada + ", Tipo Lesión: " + caza + "Gravedad Lesión : " + gravedad + "Fecha Baja: " + fecha_baja;
+        String texto = "";
+        if (this.fecha_baja != null && this.fecha_lib == null) {
+            texto = "Tipo: AVE, Especie: " + especie + ", Peso: " + peso + ", Fecha Entrada: " + fecha_entrada + ", Tipo Lesión: " + caza + ", Gravedad Lesión : " + gravedad + ", Fecha Baja: " + fecha_baja;
+        }
+        if (this.fecha_lib != null && this.fecha_baja == null) {
+            texto = "Tipo: AVE, Especie: " + especie  + ", Fecha Entrada: " + fecha_entrada + ", Tipo Lesión: " + caza + ", Gravedad Lesión : " + gravedad + ", Fecha Liberación: " + fecha_lib;
+        }
+        if (this.fecha_lib == null && this.fecha_baja == null) {
+            texto = "Tipo: AVE, Especie: " + especie + ", Peso: " + peso + ", Fecha Entrada: " + fecha_entrada + ", Tipo Lesión: " + caza + " Gravedad Lesión : " + gravedad;
         }
         return texto;
     }
-
 }
