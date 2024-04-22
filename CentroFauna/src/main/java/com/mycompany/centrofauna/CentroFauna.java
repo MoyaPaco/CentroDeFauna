@@ -37,7 +37,7 @@ public class CentroFauna extends javax.swing.JFrame {
     static Reptil r1 = new Reptil(true, null, "gorrion4", 20, "muy grave");
     static Reptil r2 = new Reptil(true, null, "gorrion4", 20, "muy grave");
     static Toolkit miPantalla = Toolkit.getDefaultToolkit();
-    static Image icono = miPantalla.getImage("src/imagenes/panda.png");
+    static Image icono = miPantalla.getImage("images/panda.png");
 
     //tamaño letra 18
     /**
@@ -406,8 +406,6 @@ public class CentroFauna extends javax.swing.JFrame {
                 .addContainerGap(199, Short.MAX_VALUE))
         );
 
-        liberacion.setPreferredSize(new java.awt.Dimension(750, 375));
-
         jPanel5.setBackground(new java.awt.Color(102, 153, 255));
         jPanel5.setMaximumSize(new java.awt.Dimension(750, 375));
         jPanel5.setPreferredSize(new java.awt.Dimension(750, 500));
@@ -614,19 +612,19 @@ public class CentroFauna extends javax.swing.JFrame {
                                 .addComponent(botonLib, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(botonTratamiento1, javax.swing.GroupLayout.DEFAULT_SIZE, 231, Short.MAX_VALUE))
                             .addComponent(botonListado, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(69, 69, 69)
+                        .addGap(85, 85, 85)
                         .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 778, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(58, 58, 58)))
+                        .addGap(42, 42, 42)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGap(35, 35, 35)
+                .addComponent(botonAlta)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(botonAlta)
                         .addGap(76, 76, 76)
                         .addComponent(botonBaja)
                         .addGap(78, 78, 78)
@@ -634,11 +632,14 @@ public class CentroFauna extends javax.swing.JFrame {
                         .addGap(84, 84, 84)
                         .addComponent(botonLib)
                         .addGap(94, 94, 94)
-                        .addComponent(botonListado))
-                    .addComponent(jLabel9))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
-                .addComponent(botonSalir)
-                .addContainerGap())
+                        .addComponent(botonListado)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
+                        .addComponent(botonSalir)
+                        .addGap(18, 18, 18))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel9)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -665,7 +666,7 @@ public class CentroFauna extends javax.swing.JFrame {
     }//GEN-LAST:event_botonSalirActionPerformed
 
     private void botonBajaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonBajaActionPerformed
-        setIconImage(icono);
+        baja.setIconImage(icono);
         baja.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         baja.setSize(750, 500);
         baja.setLocationRelativeTo(this);
