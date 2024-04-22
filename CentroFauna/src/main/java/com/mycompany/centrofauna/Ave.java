@@ -15,9 +15,18 @@ public class Ave extends Animal {
         super(fecha_entrada, especie, peso, gravedad);
         this.caza = caza;
     }
-       public Ave(boolean caza, Date fecha_baja, Date fecha_entrada, String especie, double peso, String gravedad) {
+
+    public Ave(boolean caza, Date fecha_baja, Date fecha_entrada, String especie, double peso, String gravedad) {
         super(fecha_entrada, especie, peso, gravedad);
         this.caza = caza;
+        this.fecha_baja = fecha_baja;
+    }
+
+    public Date getFecha_baja() {
+        return fecha_baja;
+    }
+
+    public void setFecha_baja(Date fecha_baja) {
         this.fecha_baja = fecha_baja;
     }
 
@@ -65,12 +74,12 @@ public class Ave extends Animal {
     @Override
     public String toString() {
         String texto;
-        if (fecha_baja != null) {
-            texto = "Tipo: AVE, Especie: " + especie + ", Peso: " + peso + ", Fecha Entrada: " + fecha_entrada + ", Tipo Lesión: " + caza + "Gravedad Lesión : " + gravedad;
-
+        if (fecha_baja == null) {
+            texto = "Tipo: MAMÍFERO, Especie: " + especie + ", Peso: " + peso + ", Fecha Entrada: " + fecha_entrada + ", Tipo Lesión: " + caza + "Gravedad Lesión : " + gravedad ;
         } else {
-            texto = "Tipo: AVE, Especie: " + especie + ", Peso: " + peso + ", Fecha Entrada: " + fecha_entrada + ", Tipo Lesión: " + caza + "Gravedad Lesión : " + gravedad + "Fecha Baja: " + fecha_baja;
+            texto = "Tipo: MAMÍFERO, Especie: " + especie + ", Peso: " + peso + ", Fecha Entrada: " + fecha_entrada + ", Tipo Lesión: " + caza + "Gravedad Lesión : " + gravedad + "Fecha Baja: " + fecha_baja;
         }
         return texto;
-}
+    }
+
 }
