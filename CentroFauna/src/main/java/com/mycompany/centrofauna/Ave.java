@@ -10,6 +10,7 @@ public class Ave extends Animal {
 
     boolean caza;
     Date fecha_baja;
+    String tratamientoa;
 
     public Ave(boolean caza, Date fecha_entrada, String especie, double peso, String gravedad) {
         super(fecha_entrada, especie, peso, gravedad);
@@ -22,6 +23,21 @@ public class Ave extends Animal {
         this.fecha_baja = fecha_baja;
     }
 
+    public Ave(boolean caza, String tratamientoa, Date fecha_entrada, String especie, double peso, String gravedad) {
+        super(fecha_entrada, especie, peso, gravedad);
+        this.caza = caza;
+        this.tratamientoa = tratamientoa;
+    }
+
+    public String getTratamientoa() {
+        return tratamientoa;
+    }
+
+    public void setTratamientoa(String tratamientoa) {
+        this.tratamientoa = tratamientoa;
+    }
+
+    
     public Date getFecha_baja() {
         return fecha_baja;
     }

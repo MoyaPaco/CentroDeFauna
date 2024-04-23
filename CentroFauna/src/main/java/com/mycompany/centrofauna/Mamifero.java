@@ -9,16 +9,48 @@ import java.util.Date;
 public class Mamifero extends Animal{
     boolean motivoAtropello;
     Date fecha_baja;
+    String tratamientoa;
+    String veterinario;
 
     public Mamifero(boolean motivoAtropello, Date fecha_entrada, String especie, double peso, String gravedad) {
         super(fecha_entrada, especie, peso, gravedad);
         this.motivoAtropello = motivoAtropello;
     }
 
+    public Mamifero(boolean motivoAtropello, String tratamientoa, String veterinario, Date fecha_entrada, String especie, double peso, String gravedad) {
+        super(fecha_entrada, especie, peso, gravedad);
+        this.motivoAtropello = motivoAtropello;
+        this.tratamientoa = tratamientoa;
+        this.veterinario = veterinario;
+    }
+
+    public String getVeterinario() {
+        return veterinario;
+    }
+
+    public void setVeterinario(String veterinario) {
+        this.veterinario = veterinario;
+    }
+    
+
     public Mamifero(boolean motivoAtropello, Date fecha_baja, Date fecha_entrada, String especie, double peso, String gravedad) {
         super(fecha_entrada, especie, peso, gravedad);
         this.motivoAtropello = motivoAtropello;
         this.fecha_baja = fecha_baja;
+    }
+
+    public Mamifero(boolean motivoAtropello, String tratamientoa, Date fecha_entrada, String especie, double peso, String gravedad) {
+        super(fecha_entrada, especie, peso, gravedad);
+        this.motivoAtropello = motivoAtropello;
+        this.tratamientoa = tratamientoa;
+    }
+
+    public String getTratamientoa() {
+        return tratamientoa;
+    }
+
+    public void setTratamientoa(String tratamientoa) {
+        this.tratamientoa = tratamientoa;
     }
 
     public Date getFecha_baja() {

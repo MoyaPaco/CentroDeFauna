@@ -10,6 +10,7 @@ public class Reptil extends Animal {
 
     boolean motivoInfeccion;
     Date fecha_baja;
+    String tratamientoa;
 
     public Reptil(boolean motivoInfeccion, Date fecha_entrada, String especie, double peso, String gravedad) {
         super(fecha_entrada, especie, peso, gravedad);
@@ -20,6 +21,21 @@ public class Reptil extends Animal {
         super(fecha_entrada, especie, peso, gravedad);
         this.motivoInfeccion = motivoInfeccion;
         this.fecha_baja = fecha_baja;
+    }
+
+    public Reptil(boolean motivoInfeccion, String tratamientoa, Date fecha_entrada, String especie, double peso, String gravedad) {
+        super(fecha_entrada, especie, peso, gravedad);
+        this.motivoInfeccion = motivoInfeccion;
+        this.tratamientoa = tratamientoa;
+    }
+
+    
+    public String getTratamientoa() {
+        return tratamientoa;
+    }
+
+    public void setTratamientoa(String tratamientoa) {
+        this.tratamientoa = tratamientoa;
     }
 
     public Date getFecha_baja() {

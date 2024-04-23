@@ -26,14 +26,15 @@ public class CentroFauna extends javax.swing.JFrame {
     static ArrayList<Reptil> reptiles = new ArrayList();
     static ArrayList<Animal> bajas = new ArrayList();
     static ArrayList<Animal> liber = new ArrayList();
+    static ArrayList<Animal> tratados = new ArrayList();
 
     //PRUEBAS JCOMBO BAJA
     static Ave a1 = new Ave(true, null, "gorrion1", 20, "muy grave");
     static Ave a2 = new Ave(true, null, "gorrion2", 20, "muy grave");
     static Ave a3 = new Ave(true, null, "gorrion3", 20, "muy grave");
     static Ave a4 = new Ave(true, null, "gorrion4", 20, "muy grave");
-    static Mamifero m1 = new Mamifero(true, null, "gorrion3", 20, "muy grave");
-    static Mamifero m2 = new Mamifero(true, null, "gorrion4", 20, "muy grave");
+    static Mamifero m1 = new Mamifero(true, null, "cabron1", 20, "muy grave");
+    static Mamifero m2 = new Mamifero(true, null, "cabron2", 20, "muy grave");
     static Reptil r1 = new Reptil(true, null, "gorrion4", 20, "muy grave");
     static Reptil r2 = new Reptil(true, null, "gorrion4", 20, "muy grave");
 
@@ -67,16 +68,24 @@ public class CentroFauna extends javax.swing.JFrame {
         }
 
         for (int i = 0; i < aves.size(); i++) {
-            desplegableBaja.addItem(aves.get(i));
+            desplegableliber.addItem(aves.get(i));
         }
         for (int i = 0; i < reptiles.size(); i++) {
-            desplegableBaja.addItem(reptiles.get(i));
+            desplegableliber.addItem(reptiles.get(i));
         }
 
         for (int i = 0; i < mamiferos.size(); i++) {
-            desplegableBaja.addItem(mamiferos.get(i));
+            desplegableliber.addItem(mamiferos.get(i));
         }
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        for (int i = 0; i < mamiferos.size(); i++) {
+            combotrata.addItem(mamiferos.get(i));
+        }
+        for (int i = 0; i < aves.size(); i++) {
+            combotrata.addItem(aves.get(i));
+        }
+        for (int i = 0; i < reptiles.size(); i++) {
+            combotrata.addItem(reptiles.get(i));
+        }
 
     }
 
@@ -142,14 +151,15 @@ public class CentroFauna extends javax.swing.JFrame {
         tratamiento = new javax.swing.JFrame();
         jPanel2 = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
-        jScrollPane5 = new javax.swing.JScrollPane();
-        listatratamiento = new javax.swing.JList<>();
-        jLabel14 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
         guardartrata = new javax.swing.JButton();
         salirtrata = new javax.swing.JButton();
+        jLabel21 = new javax.swing.JLabel();
+        combotrata = new javax.swing.JComboBox<>();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        tipotrata = new javax.swing.JTextArea();
         jLabel13 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        comboveterinario = new javax.swing.JComboBox<>();
+        jLabel14 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         botonAlta = new javax.swing.JButton();
         botonListado = new javax.swing.JButton();
@@ -626,22 +636,13 @@ public class CentroFauna extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        tratamiento.setMinimumSize(new java.awt.Dimension(800, 600));
+        tratamiento.setResizable(false);
+
+        jPanel2.setMinimumSize(new java.awt.Dimension(800, 600));
+        jPanel2.setPreferredSize(new java.awt.Dimension(800, 600));
+
         jLabel12.setText("TRATAMIENTO");
-
-        listatratamiento.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
-        jScrollPane5.setViewportView(listatratamiento);
-
-        jLabel14.setText("Tipo de Tratamiento:");
-
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
-            }
-        });
 
         guardartrata.setText("Guardar");
         guardartrata.addActionListener(new java.awt.event.ActionListener() {
@@ -657,77 +658,90 @@ public class CentroFauna extends javax.swing.JFrame {
             }
         });
 
-        jLabel13.setText("Trabajador a cargo:");
+        jLabel21.setText("Animal:");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        tipotrata.setColumns(20);
+        tipotrata.setRows(5);
+        jScrollPane5.setViewportView(tipotrata);
+
+        jLabel13.setText("Veterinario:");
+
+        comboveterinario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Rosano", "Paco", "Hugo", "Carlos" }));
+
+        jLabel14.setText("Tipo de Tratamiento:");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addContainerGap()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jLabel21)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(combotrata, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(jLabel13)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 658, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel14)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 650, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE))
+                                .addComponent(comboveterinario, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addGap(0, 11, Short.MAX_VALUE)
+                        .addComponent(jLabel14)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 644, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(24, 24, 24))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 771, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(283, 283, 283)
+                                .addGap(310, 310, 310)
+                                .addComponent(jLabel12))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(220, 220, 220)
                                 .addComponent(guardartrata)
-                                .addGap(42, 42, 42)
+                                .addGap(122, 122, 122)
                                 .addComponent(salirtrata)))
-                        .addContainerGap(18, Short.MAX_VALUE))))
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(341, 341, 341)
-                .addComponent(jLabel12)
-                .addGap(0, 0, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(jLabel12)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(12, 12, 12)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel13)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                    .addComponent(jLabel21)
+                    .addComponent(combotrata, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(49, 49, 49)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(comboveterinario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel13))
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel14)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(35, 35, 35)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(124, 124, 124)
+                        .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(156, 156, 156)
+                        .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 132, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(guardartrata)
                     .addComponent(salirtrata))
-                .addContainerGap())
+                .addGap(108, 108, 108))
         );
 
         javax.swing.GroupLayout tratamientoLayout = new javax.swing.GroupLayout(tratamiento.getContentPane());
         tratamiento.getContentPane().setLayout(tratamientoLayout);
         tratamientoLayout.setHorizontalGroup(
             tratamientoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(tratamientoLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         tratamientoLayout.setVerticalGroup(
             tratamientoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(tratamientoLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -850,7 +864,7 @@ public class CentroFauna extends javax.swing.JFrame {
 
     private void botonTratamiento1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonTratamiento1ActionPerformed
         tratamiento.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-        tratamiento.setSize(795,338);
+        tratamiento.setSize(870, 284);
         Toolkit miPantalla = Toolkit.getDefaultToolkit();
         //obtiene el tamaño de la pantalla
         Dimension tamPantalla = miPantalla.getScreenSize();
@@ -890,7 +904,7 @@ public class CentroFauna extends javax.swing.JFrame {
         //alta.setSize(anchoPantalla / 2, altoPantalla / 2); //viene de JFrame
         liberacion.setLocation(anchoPantalla / 4, altoPantalla / 4);
         liberacion.setVisible(true);
-        
+
         SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
         Date fecha_baja = null;
         if (desplegableliber.getSelectedItem() instanceof Ave) {
@@ -905,19 +919,13 @@ public class CentroFauna extends javax.swing.JFrame {
         if (desplegableliber.getSelectedItem() instanceof Reptil) {
             reptiles.remove(desplegableliber.getSelectedItem());
         }
-        
+
     }//GEN-LAST:event_botonLibActionPerformed
 
     private void botonListadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonListadoActionPerformed
         // TODO add your handling code here:
-        listado.setSize(800,640);
-        Toolkit miPantalla = Toolkit.getDefaultToolkit();
-        //obtiene el tamaño de la pantalla
-        Dimension tamPantalla = miPantalla.getScreenSize();
-        int altoPantalla = tamPantalla.height;
-        int anchoPantalla = tamPantalla.width;
-        //alta.setSize(anchoPantalla / 2, altoPantalla / 2); //viene de JFrame
-        listado.setLocation(anchoPantalla / 4, altoPantalla / 4);
+        listado.setSize(800, 800);
+        listado.setLocationRelativeTo(this);
         listado.setVisible(true);
 
         DefaultListModel listaves = new DefaultListModel();
@@ -951,9 +959,9 @@ public class CentroFauna extends javax.swing.JFrame {
         }
         DefaultListModel listatratados = new DefaultListModel();
         //Recorrer el contenido del ArrayList
-        for (int i = 0; i < bajas.size(); i++) {
+        for (int i = 0; i < tratados.size(); i++) {
             //Añadir cada elemento del ArrayList en el modelo de la lista
-            listatratados.add(i, bajas.get(i));
+            listatratados.add(i, tratados.get(i));
             listaTratados.setModel(listatratados);
         }
         DefaultListModel listaliberados = new DefaultListModel();
@@ -963,6 +971,7 @@ public class CentroFauna extends javax.swing.JFrame {
             listaliberados.add(i, bajas.get(i));
             listaLiberados.setModel(listaliberados);
         }
+
     }//GEN-LAST:event_botonListadoActionPerformed
 
     private void botonAltaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAltaActionPerformed
@@ -1170,13 +1179,48 @@ public class CentroFauna extends javax.swing.JFrame {
 
     }//GEN-LAST:event_guardarliberActionPerformed
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
-
     private void guardartrataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardartrataActionPerformed
-        // TODO add your handling code here:
-        
+        String textotratamiento = tipotrata.getText();
+        String vet = comboveterinario.getSelectedItem().toString();
+        if (combotrata.getSelectedItem() instanceof Ave) {
+            //aves.remove(desplegableBaja.getSelectedItem());
+            Ave aF;
+            aF = (Ave) combotrata.getSelectedItem();
+            aves.remove(aF);
+            tratados.add(aF);
+        }
+        if (combotrata.getSelectedItem() instanceof Mamifero) {
+            mamiferos.remove(combotrata.getSelectedItem());
+        }
+        if (desplegableBaja.getSelectedItem() instanceof Reptil) {
+            reptiles.remove(combotrata.getSelectedItem());
+        }
+        boolean acabar = true;
+        if (acabar) {
+            JOptionPane.showMessageDialog(null, "El tratamiento se ha aplicado correctamente");
+            tratamiento.dispose();
+            setVisible(true);
+            if (combotrata.getSelectedItem() instanceof Ave) {
+                Ave aF;
+                aF = (Ave) combotrata.getSelectedItem();
+                Ave aB = new Ave(aF.isCaza(), aF.getTratamientoa(), aF.getFecha_entrada(), aF.getEspecie(), aF.getPeso(), aF.getGravedad());
+                tratados.add(aB);
+            }
+            if (combotrata.getSelectedItem() instanceof Mamifero) {
+                Mamifero mF;
+                mF = (Mamifero) combotrata.getSelectedItem();
+
+                Mamifero mB = new Mamifero(mF.isMotivoAtropello(), textotratamiento, vet, mF.getFecha_entrada(), mF.getEspecie(), mF.getPeso(), mF.getGravedad());
+                tratados.add(mB);
+            }
+            if (combotrata.getSelectedItem() instanceof Reptil) {
+                Reptil rF;
+                rF = (Reptil) combotrata.getSelectedItem();
+
+                Reptil rB = new Reptil(rF.isMotivoInfeccion(), rF.getTratamientoa(), rF.getFecha_entrada(), rF.getEspecie(), rF.getPeso(), rF.getGravedad());
+                tratados.add(rB);
+            }
+        }
     }//GEN-LAST:event_guardartrataActionPerformed
 
     private void salirtrataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salirtrataActionPerformed
@@ -1247,6 +1291,8 @@ public class CentroFauna extends javax.swing.JFrame {
     private javax.swing.JButton botonListado;
     private javax.swing.JButton botonSalir;
     private javax.swing.JButton botonTratamiento1;
+    private javax.swing.JComboBox<Animal> combotrata;
+    private javax.swing.JComboBox<String> comboveterinario;
     private javax.swing.JComboBox<Animal> desplegableBaja;
     private javax.swing.JComboBox<Animal> desplegableliber;
     private javax.swing.JTextField especieAnimal;
@@ -1257,7 +1303,6 @@ public class CentroFauna extends javax.swing.JFrame {
     private javax.swing.JButton guardarBaja;
     private javax.swing.JButton guardarliber;
     private javax.swing.JButton guardartrata;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1271,6 +1316,7 @@ public class CentroFauna extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -1290,7 +1336,6 @@ public class CentroFauna extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
-    private javax.swing.JTextField jTextField2;
     private javax.swing.JFrame liberacion;
     private javax.swing.JList<String> listaAves;
     private javax.swing.JList<String> listaBaja;
@@ -1299,7 +1344,6 @@ public class CentroFauna extends javax.swing.JFrame {
     private javax.swing.JList<String> listaReptiles;
     private javax.swing.JList<String> listaTratados;
     private javax.swing.JFrame listado;
-    private javax.swing.JList<String> listatratamiento;
     private javax.swing.JTextField peso;
     private javax.swing.JButton salirAlta;
     private javax.swing.JButton salirBaja;
@@ -1307,6 +1351,7 @@ public class CentroFauna extends javax.swing.JFrame {
     private javax.swing.JButton salirliber;
     private javax.swing.JButton salirtrata;
     private javax.swing.JComboBox<String> tipoAnimal;
+    private javax.swing.JTextArea tipotrata;
     private javax.swing.JFrame tratamiento;
     // End of variables declaration//GEN-END:variables
 }
