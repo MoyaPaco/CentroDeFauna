@@ -10,10 +10,17 @@ public class Reptil extends Animal {
 
     boolean motivoInfeccion;
     Date fecha_baja;
+    Date fecha_lib;
 
     public Reptil(boolean motivoInfeccion, Date fecha_entrada, String especie, double peso, String gravedad) {
         super(fecha_entrada, especie, peso, gravedad);
         this.motivoInfeccion = motivoInfeccion;
+    }
+
+    public Reptil(boolean motivoInfeccion, Date fecha_lib, Date fecha_entrada, String especie, String gravedad) {
+        super(fecha_entrada, especie, gravedad);
+        this.motivoInfeccion = motivoInfeccion;
+        this.fecha_lib = fecha_lib;
     }
 
     public Reptil(boolean motivoInfeccion, Date fecha_baja, Date fecha_entrada, String especie, double peso, String gravedad) {
@@ -72,9 +79,15 @@ public class Reptil extends Animal {
 
     @Override
     public String toString() {
-        String texto;
+        String siInf;
+        if (motivoInfeccion) {
+            siInf = "Sí";
+        } else {
+            siInf = "No";
+        }
+        String texto = "";
         if (fecha_baja == null) {
-            texto = "Tipo: REPTIL, Especie: " + especie + ", Peso: " + peso + ", Fecha Entrada: " + fecha_entrada + ", Tipo Lesión: " + motivoInfeccion + "Gravedad Lesión : " + gravedad;
+            texto = "Tipo: REPTIL, Especie: " + especie + ", Peso: " + peso + ", Fecha Entrada: " + fecha_entrada + ", Lesión provocada por infección: " + siInf + "Gravedad Lesión : " + gravedad;
         } else {
             texto = "Tipo: REPTIL, Especie: " + especie + ", Peso: " + peso + ", Fecha Entrada: " + fecha_entrada + ", Tipo Lesión: " + motivoInfeccion + "Gravedad Lesión : " + gravedad + "Fecha Baja: " + fecha_baja;
         }

@@ -87,15 +87,21 @@ public class Ave extends Animal {
 
     @Override
     public String toString() {
+        String siCaza;
+        if(caza){
+             siCaza = "Sí";
+        }else{
+             siCaza = "No";
+        }
         String texto = "";
         if (this.fecha_baja != null && this.fecha_lib == null) {
-            texto = "Tipo: AVE, Especie: " + especie + ", Peso: " + peso + ", Fecha Entrada: " + fecha_entrada + ", Tipo Lesión: " + caza + ", Gravedad Lesión : " + gravedad + ", Fecha Baja: " + fecha_baja;
+            texto = "Tipo: AVE, Especie: " + especie + ", Peso: " + peso + ", Fecha Entrada: " + fecha_entrada + ", Lesión provocada por caza: " + siCaza  + ", Gravedad Lesión : " + gravedad + ", Fecha Baja: " + fecha_baja;
         }
         if (this.fecha_lib != null && this.fecha_baja == null) {
-            texto = "Tipo: AVE, Especie: " + especie  + ", Fecha Entrada: " + fecha_entrada + ", Tipo Lesión: " + caza + ", Gravedad Lesión : " + gravedad + ", Fecha Liberación: " + fecha_lib;
+            texto = "Tipo: AVE, Especie: " + especie  + ", Fecha Entrada: " + fecha_entrada + ", Lesión provocada por caza: " + siCaza + ", Gravedad Lesión : " + gravedad + ", Fecha Liberación: " + fecha_lib;
         }
         if (this.fecha_lib == null && this.fecha_baja == null) {
-            texto = "Tipo: AVE, Especie: " + especie + ", Peso: " + peso + ", Fecha Entrada: " + fecha_entrada + ", Tipo Lesión: " + caza + " Gravedad Lesión : " + gravedad;
+            texto = "Tipo: AVE, Especie: " + especie + ", Peso: " + peso + ", Fecha Entrada: " + fecha_entrada + ", Lesión provocada por caza: " + siCaza + " Gravedad Lesión : " + gravedad;
         }
         return texto;
     }

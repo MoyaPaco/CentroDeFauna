@@ -6,13 +6,21 @@ import java.util.Date;
  *
  * @author Paco y Mario
  */
-public class Mamifero extends Animal{
+public class Mamifero extends Animal {
+
     boolean motivoAtropello;
     Date fecha_baja;
+    Date fecha_lib;
 
     public Mamifero(boolean motivoAtropello, Date fecha_entrada, String especie, double peso, String gravedad) {
         super(fecha_entrada, especie, peso, gravedad);
         this.motivoAtropello = motivoAtropello;
+    }
+
+    public Mamifero(boolean motivoAtropello, Date fecha_lib, Date fecha_entrada, String especie, String gravedad) {
+        super(fecha_entrada, especie, gravedad);
+        this.motivoAtropello = motivoAtropello;
+        this.fecha_lib = fecha_lib;
     }
 
     public Mamifero(boolean motivoAtropello, Date fecha_baja, Date fecha_entrada, String especie, double peso, String gravedad) {
@@ -28,8 +36,6 @@ public class Mamifero extends Animal{
     public void setFecha_baja(Date fecha_baja) {
         this.fecha_baja = fecha_baja;
     }
-
-
 
     public boolean isMotivoAtropello() {
         return motivoAtropello;
@@ -70,14 +76,24 @@ public class Mamifero extends Animal{
     public void setGravedad(String gravedad) {
         this.gravedad = gravedad;
     }
-    
+
     @Override
     public String toString() {
-        String texto;
-        if (fecha_baja == null) {
-            texto = "Tipo: MAMÍFERO, Especie: " + especie + ", Peso: " + peso + ", Fecha Entrada: " + fecha_entrada + ", Tipo Lesión: " + motivoAtropello + "Gravedad Lesión : " + gravedad ;
+        String siAtr;
+        if (motivoAtropello) {
+            siAtr = "Sí";
         } else {
-            texto = "Tipo: MAMÍFERO, Especie: " + especie + ", Peso: " + peso + ", Fecha Entrada: " + fecha_entrada + ", Tipo Lesión: " + motivoAtropello + "Gravedad Lesión : " + gravedad + "Fecha Baja: " + fecha_baja;
+            siAtr = "No";
+        }
+        String texto = "";
+        if (this.fecha_baja != null && this.fecha_lib == null) {
+            texto = "Tipo: MAMÍFERO, Especie: " + especie + ", Peso: " + peso + ", Fecha Entrada: " + fecha_entrada + ", Lesión provocada por atropello: " + siAtr + "Gravedad Lesión : " + gravedad;
+        }
+        if (this.fecha_lib != null && this.fecha_baja == null) {
+            texto = "Tipo: MAMÍFERO, Especie: " + especie + ", Fecha Entrada: " + fecha_entrada + ", Lesión provocada por atropello: " + siAtr + ", Gravedad Lesión : " + gravedad + ", Fecha Liberación: " + fecha_lib;
+        }
+        if (this.fecha_lib == null && this.fecha_baja == null) {
+            texto = "Tipo: MAMÍFERO, Especie: " + especie + ", Peso: " + peso + ", Fecha Entrada: " + fecha_entrada + ", Lesión provocada por atropello: " + siAtr + "Gravedad Lesión : " + gravedad + "Fecha Baja: " + fecha_baja;
         }
         return texto;
     }
